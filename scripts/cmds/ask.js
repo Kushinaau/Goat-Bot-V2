@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 const Prefixes = [
-  'Ghost', 
+  'Gojo', 
   'ai'
 ];
 
@@ -35,7 +35,7 @@ module.exports = {
       const answer = response.data.answer;
 
  
-    await message.reply({ body: `💀GHØST ✨☄️
+    await message.reply({ body: `Gojo🐼
 ━━━━━━━━━━━━━        
 ${answer}
 ━━━━━━━━━━━━━`,
