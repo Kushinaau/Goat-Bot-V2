@@ -26,7 +26,8 @@ module.exports = {
       }
       const prompt = event.body.substring(prefix.length).trim();
    if (!prompt) {
-        await message.reply("ˢᵃˡᵘᵗ ᶠʳᵃⁿᵍⁱⁿ c̶a̶ r̶o̶u̶l̶e̶  ??✨☄️😷༅ ");
+        await message.reply(Gojo:La beauté des choses dépend de l'esprit qui les contemple
+          comment puis-je t'aider?);
         return;
       }
 
