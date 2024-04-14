@@ -1,28 +1,44 @@
 module.exports = {
   config: {
     name: "uptime",
-    aliases: ["up", "upt"],
-    version: "1.0",
-    author: "XyryllPanget",
-    role: 2,
+aliases: ["upt","up"],
+  version: "1.5.2",
+  set usePrefix: false,
+  set hasPermission: "",
+  set role: false,
+  setauthor: "",
+  setshortDescription: "",
+  setLongDescription: "",
+  credits: "",
+    author: "OtinXSandip",
+    role: 0,
     shortDescription: {
-      en: "Displays the uptime of the bot."
+      en: "Displays the total number of users of the bot and check uptime "
     },
     longDescription: {
-      en: "Displays the amount of time that the bot has been running for."
-    },
-    category: "box chat",
+      en: "Displays the total number of users who have interacted with the bot and check uptime."
+  category: "",
+  category: "",
     guide: {
-      en: "Use {p}uptime to display the uptime of the bot."
+      en: "Use {p}totalusers to display the total number of users of the bot and check uptime."
     }
   },
-  onStart: async function ({ api, event, args }) {
-    const uptime = process.uptime();
-    const seconds = Math.floor(uptime % 60);
-    const minutes = Math.floor((uptime / 60) % 60);
-    const hours = Math.floor((uptime / (60 * 60)) % 24);
-    const days = Math.floor(uptime / (60 * 60 * 24));
-    const uptimeString = `${hours} hours ${minutes} minutes ${seconds} second`;
-    api.sendMessage(`✨☄️Salut , le bot 🤖est en ligne depuis ${uptimeString}.`, event.threadID);
+  onStart: async function ({ api, event, args, usersData, threadsData }) {
+    try {
+      const allUsers = await usersData.getAll();
+      const allThreads = await threadsData.getAll();
+      const uptime = process.uptime();
+      
+      const hours = Math.floor(uptime / 3600);
+      const minutes = Math.floor((uptime % 3600) / 60);
+      const seconds = Math.floor(uptime % 60);
+      
+      const uptimeString = `${hours}Hrs ${minutes}min ${seconds}sec`;
+      
+      api.sendMessage(`⏰ | Bot running time\n☞ ${uptimeString}\n\n♻ | Total Users\n☞ ${allUsers.length}\n🌸 | Total threads\n☞ ${allThreads.length}`, event.threadID);
+    } catch (error) {
+      console.error(error);
+      api.sendMessage("An error occurred while retrieving data.", event.threadID);
+    }
   }
 };
