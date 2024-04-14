@@ -26,9 +26,7 @@ module.exports = {
       }
       const prompt = event.body.substring(prefix.length).trim();
    if (!prompt) {
-        await message.reply("🕊.....𝐆𝐎𝐉𝐎....✰ 
-
-Je suis le plus puissant des sorciers, le Démon aux Yeux Écarlates, Gojo Satoru  ! Que puis-je faire pour t'aider ? 🐼");
+        await message.reply("🕊.....𝐆𝐎𝐉𝐎....✰Je suis le plus puissant des sorciers, le Démon aux Yeux Écarlates, Gojo Satoru  ! Que puis-je faire pour t'aider ? 🐼");
         return;
       }
 
